@@ -1,0 +1,21 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-deploy
+spec:
+  selector:
+    matchLabels:
+      phase: stage
+  template:
+    metadata:
+      labels:
+        phase: stage
+    spec:
+      containers:
+      - name: nginx-cnt
+        image: nginx
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
