@@ -1,0 +1,17 @@
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: empty-dir-pod
+  labels:
+    app: nginx
+spec:
+  containers:
+  - name: nginx-cnt
+    image: nginx
+    volumeMounts:
+    - mountPath: "/mnt/data"
+      name: "nginx-cnt-vol"
+  volumes:
+  - name: nginx-cnt-vol
+    emptyDir: {}

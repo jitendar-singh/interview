@@ -1,0 +1,16 @@
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: hp-pod
+spec:
+  containers:
+  - name: hp-pod-ctn
+    image: nginx
+    volumeMounts:
+    - mountPath: "/sunny/data"
+      name: hp-vol
+  volumes:
+  - name: hp-vol
+    hostPath:
+      path: /tmp/data
